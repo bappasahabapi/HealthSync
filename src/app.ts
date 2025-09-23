@@ -8,6 +8,9 @@ import { demoRoutes } from "./app/modules/Demo/demo.routes";
 const app:Application=express()
 app.use(cors());
 
+//body parser: without this req.body will be undefined
+app.use(express.json());
+app.use(express.urlencoded({extended:true}))
 
 app.get('/',(req:Request, res:Response)=>{
     res.send({

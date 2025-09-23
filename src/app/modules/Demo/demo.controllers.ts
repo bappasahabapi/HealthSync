@@ -3,9 +3,8 @@ import { demoService } from "./demo.services";
 
 
 const demoUser =async(req:Request, res:Response)=>{
+    console.log(req.body)
     const result =await demoService.demoUser();
-    console.log(result)
-
     res.send(result);
 }
 

@@ -10,6 +10,10 @@ Prisma:
     - npx tsc --init
     - npx prisma init ||npx prisma init --db --output ../generated/prisma
     - after creating schema then migrate the schema `npx prisma migrate dev` then auto prisma client will be installl
+    - You may use prisma migrate reset to drop the development database.
+All data will be lost.
+        - ❯ `npx prisma migrate reset`
+    - To open the table in prisma : npx prisma studio
 
 Express:
     - npm install express -D
@@ -23,10 +27,22 @@ Express:
 
 Step by Step:
 
-2. 
+2.  
+
+🍟`hs-01/project-initiation-analysis`
 
 - 5: First Setup the server:
 - 6: Migration of User & Admin Models/Prisma Schema
     - Start the schema by creating user schema.
     - then migrate the schema `npx prisma migrate dev`
 - 7: Implementation of User Routes, Controllers, and Services    
+
+🍟` hs-02/user-admin`
+
+After change any model run the migration command
+    - `px prisma migrate dev` 
+
+- 8: User & Admin Creation: Part 1
+- 9: User & Admin Creation: Part 2
+    - Here I have to first make the user and then at the same time I need to make this an admin.
+    - thats wsy we need transaction . first data will hit users table and then admin table

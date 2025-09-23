@@ -1,0 +1,12 @@
+## POST 
+http://localhost:4001/api/v1/user
+
+{
+    "password":"123456",
+    "admin":{
+        "name":"admin",
+        "email":"admin@gmail.com",
+        "contactNumber":"012345678911"
+        
+    }
+}
