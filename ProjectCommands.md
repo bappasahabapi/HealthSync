@@ -25,9 +25,9 @@ Express:
     - npm i --save-dev @types/cors
 
 
-Step by Step:
+## 2. Step by Step:
 
-2.  basic Skeleton mvc 
+🍟++++++++++ `basic Skeleton mvc` +++++++++++++
 
 🍟`hs-01/project-initiation-analysis`
 
@@ -52,3 +52,8 @@ After change any model run the migration command
     - [bcrypt](https://www.npmjs.com/package/bcrypt) 
     - `npm i bcrypt`
     - `npm i --save-dev @types/bcrypt`
+
+🍟++++++++++`hs-p1:` +++++++++++++
+---
+
+- 1: Response Formatting and Exception HandlingRes
