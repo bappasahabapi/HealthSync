@@ -3,5 +3,7 @@ import { userController } from './user.controllers';
 
 const router =express.Router();
 
-router.get("/",userController.createAdmin)
+router.post("/", userController.createAdmin);
+// router.post("/", userController.createPatient);
+// router.post("/", userController.createDoctor);
 export const userRoutes =router;
