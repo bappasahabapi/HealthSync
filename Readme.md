@@ -1,6 +1,7 @@
 ### 🩺 🏥 HealthSync:
 <p>TypeScript,NodeJS, Express, Prisma, WEB RTC (via Agora.io), and PostgreSQL</p>
-🔲 frun code: npm run dev
+
+🔲 run code: npm run dev
 ---
 
 🚑 Smart HealthSync Management System | Patient–Doctor Communication Platform
