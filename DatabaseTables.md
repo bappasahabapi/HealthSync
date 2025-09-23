@@ -16,3 +16,11 @@ Initially Start the project based on this table. In future we will update the ta
 - 12. Review
 - 13. Specialities
 - 14. Doctor Specialities
+
+
+
+## Routes:
+
+**user**
+- app.use('/api/v1/user',userRoutes)
+    - http://localhost:4001/api/v1/user

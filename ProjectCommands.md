@@ -25,7 +25,8 @@ Step by Step:
 
 2. 
 
-- First Setup the server:
-- 5.Migration of User & Admin Models/Prisma Schema
+- 5: First Setup the server:
+- 6: Migration of User & Admin Models/Prisma Schema
     - Start the schema by creating user schema.
     - then migrate the schema `npx prisma migrate dev`
+- 7: Implementation of User Routes, Controllers, and Services    
