@@ -13,5 +13,8 @@ Prisma:
 Express:
     - npm install express -D
     - npm i --save-dev @types/express
+    
     - npm install ts-node-dev -D
+
     - npm install cors
+    - npm i --save-dev @types/cors
