@@ -1,5 +1,5 @@
-// import { UserRole } from "@prisma/client" //this is used in old version of prisma
-import { Prisma, PrismaClient, UserRole } from "../../../generated/prisma"
+// import { PrismaClient,UserRole  } from "@prisma/client" //this is used in old version of prisma
+import { PrismaClient, UserRole } from "../../../generated/prisma"
 import * as bcrypt from "bcrypt";
 
 const prisma =new PrismaClient();
@@ -15,10 +15,11 @@ const createAdmin =async(data:any)=>{
         // password:data?.password,
         password:hashedPassword,
         role:UserRole.ADMIN
+
         
     }
 
-    const result =await prisma.$transaction(async(transactionClient)=>{
+    const result =await prisma.$transaction(async(transactionClient:any)=>{
 
         //first create the user
         // const createdUserData =await transactionClient.user.create({
