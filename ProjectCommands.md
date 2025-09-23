@@ -1,4 +1,4 @@
-## Used Commands
+## 1.Used Commands
 
 - npm init
 
@@ -27,7 +27,7 @@ Express:
 
 Step by Step:
 
-2.  
+2.  basic Skeleton mvc 
 
 🍟`hs-01/project-initiation-analysis`
 

@@ -91,3 +91,11 @@ prescription delivery.
 ### 4. Single-Page Application (SSR)
 - Landing Page: Provides information about the PH HealthCare system.
 - Doctor Profile: Displays detailed information about doctors.
+
+
+## Working Branch
+
+🍟 main
+🍟 hs-01/project-initiation-analysis
+🍟 hs-02/user-admin
+🍟 hs-03/password-hashing
