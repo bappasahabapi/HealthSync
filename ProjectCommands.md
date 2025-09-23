@@ -59,4 +59,4 @@ After change any model run the migration command
 - 1: Response Formatting and Exception HandlingRes
     - `npm install http-status-codes` for avoid hardcoding
 - 2: Retrieving All Admin Data from the Database
-- 3: Implementing **Search/Filter** Functionality Using searchTerm Query
+- 3: fImplementing **Search/Filter** Functionality Using searchTerm Query
