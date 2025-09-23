@@ -9,12 +9,23 @@ Prisma:
     - npm install prisma typescript ts-node @types/node --save-dev
     - npx tsc --init
     - npx prisma init ||npx prisma init --db --output ../generated/prisma
+    - after creating schema then migrate the schema `npx prisma migrate dev` then auto prisma client will be installl
 
 Express:
     - npm install express -D
     - npm i --save-dev @types/express
-    
+
     - npm install ts-node-dev -D
 
     - npm install cors
     - npm i --save-dev @types/cors
+
+
+Step by Step:
+
+2. 
+
+- First Setup the server:
+- 5.Migration of User & Admin Models/Prisma Schema
+    - Start the schema by creating user schema.
+    - then migrate the schema `npx prisma migrate dev`
