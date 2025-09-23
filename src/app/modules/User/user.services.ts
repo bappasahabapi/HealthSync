@@ -1,15 +1,19 @@
-import { log } from "console"
 // import { UserRole } from "@prisma/client" //this is used in old version of prisma
 import { Prisma, PrismaClient, UserRole } from "../../../generated/prisma"
+import * as bcrypt from "bcrypt";
 
 const prisma =new PrismaClient();
 
 
 const createAdmin =async(data:any)=>{
     // console.log({data});
+    const saltRounds = 12;
+    const hashedPassword:string=await bcrypt.hash(data.password,saltRounds)
+    // console.log({hashedPassword}) // {hashedPassword: '$2b$12$LYpt5iyWfeuMPF/lzgMYHe/P4v8KCK1wg69./Pq7pJrxYUJQ0Wa4a'}
     const userData ={
         email:data?.admin?.email,
-        password:data?.password,
+        // password:data?.password,
+        password:hashedPassword,
         role:UserRole.ADMIN
         
     }

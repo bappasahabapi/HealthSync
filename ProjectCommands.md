@@ -46,3 +46,9 @@ After change any model run the migration command
 - 9: User & Admin Creation: Part 2
     - Here I have to first make the user and then at the same time I need to make this an admin.
     - thats wsy we need transaction . first data will hit users table and then admin table
+
+🍟 `hs-03/password-hashing`
+- 10: Implementation of Password Hashing
+    - [bcrypt](https://www.npmjs.com/package/bcrypt) 
+    - `npm i bcrypt`
+    - `npm i --save-dev @types/bcrypt`
