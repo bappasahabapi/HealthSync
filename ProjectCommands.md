@@ -83,3 +83,24 @@ in admin section
       - then page 3 will show = 99 11
 - 9: Creating Reusable Functions for Pagination and Sorting
 - 10: Developing **Reusable Functions for Prisma Client**Constructor and Pagination Calculation
+
+
+🍟++++++++++`hs-p2/admin-fuctionality` +++++++++++++
+
+ fix metadata, response format, http status code, CRUD of admin, global error hadling(next())
+
+- 1: Enhancing Response with **Metadata**
+- 2: Fetching admin data by ID
+    -start from service->controller->route
+- 3: Updating admin data in the database by ID
+- 4: Deleting admin data from the database
+    - first delete from admin table using id as pkey
+    - then delete from user table using email as fkey
+    - Thats why we need transaction as we have dependency
+- 5: Incorporating Soft Delete Functionality
+- 6: Filtering Data Based on Status
+- 7:  Formatting Response Using the sendResponse Function
+- 8: Configuring Routes in a File and Employing HTTP Status Codes
+    - http-status-codes added
+- 9: Implementing Global Error Handler using **next function**
+- 10: Managing Not Found Routes

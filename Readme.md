@@ -115,3 +115,5 @@ prescription delivery.
 ---
 - 🍟 hs-p1
     - All about seaching, filtering sorting pagination of admin section
+- 🍟 hs-p2/admin-functionality
+    - 

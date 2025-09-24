@@ -21,6 +21,20 @@ app.get('/',(req:Request, res:Response)=>{
 
 app.use('/api/v1',router)
 
-app.use(globalErrorHandler)
+//* this line execute because of we use next() in controller .
+app.use(globalErrorHandler);
+
+//** if miss the global error handler then this part call
+app.use((req:Request, res:Response,next:NextFunction)=>{
+  // console.log(req)
+  res.status(StatusCodes.NOT_FOUND).json({
+    success:false,
+    message:"API NOT FOUND",
+    error:{
+      path:req.originalUrl,
+      message:"Your requested path is not found"
+    }
+  })
+})
 
 export default app;
