@@ -1,15 +1,23 @@
+🔲 run code: 
+- first make an `env` file and paste the code from `.env.local`
+- npm install
+- npm run dev
+
+---
+
 ### 🩺 🏥 HealthSync:
 TypeScript,NodeJS, Express, Prisma, WEB RTC (via Agora.io), and PostgreSQL
 
 🚑 Smart HealthSync Management System | Patient–Doctor Communication Platform
 
-🔲 run code: npm run dev
+
 ---
 
 
 
-- Web Application Requirements (High level)
-HealthSync is a robust and comprehensive HealthSync management system designed
+**Web Application Requirements**
+
+**HealthSync** is a robust and comprehensive HealthSync management system designed
 to streamline communication and appointment processes between patients, doctors,
 and administrators. The system incorporates cutting-edge technologies such as
 `NodeJS, Express, Prisma, WEB RTC (via Agora.io), and PostgreSQL `for efficient and
@@ -96,6 +104,14 @@ prescription delivery.
 ## Working Branch
 
 🍟 main
-🍟 hs-01/project-initiation-analysis
-🍟 hs-02/user-admin
-🍟 hs-03/password-hashing
+- merge every branch
+---
+- 🍟 hs-01/project-initiation-analysis
+    - Setup project , npm packages, **prisma** , database connection, create user as admin (MVC) and **hash password**
+
+- 🍟 hs-02/user-admin
+- 🍟 hs-03/password-hashing
+
+---
+- 🍟 hs-p1
+    - All about seaching, filtering sorting pagination of admin section
