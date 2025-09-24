@@ -64,8 +64,20 @@ const getAdmins = async (params: any, options:any) => {
   }
 };
 
+const getAdminById =async(id:string)=>{
+  const data = await prisma.admin.findUnique({
+    where:{
+      id:id
+    }
+  })
+  return data;
+};
+
+
+
 export const adminService = {
   getAdmins,
+  getAdminById
 };
 
 

@@ -34,6 +34,28 @@ const getAdmins = async (req: Request, res: Response) => {
   }
 };
 
+
+const getAdminById =async(req: Request, res: Response)=>{
+  const {id} =req?.params;
+
+  try{
+    const result =await adminService.getAdminById(id)
+      res.status(StatusCodes.OK).json({
+      success: true,
+      message: "✅ Admin data fetched Successfully by id",
+      data: result,
+    });
+  }catch (err: any) {
+    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+      success: false,
+      message: err?.message || " ❌ Something went wrong",
+      error: err,
+    });
+  }
+
+};
+
 export const adminCotroller = {
   getAdmins,
+  getAdminById
 };
