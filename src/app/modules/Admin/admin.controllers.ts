@@ -21,7 +21,9 @@ const getAdmins = async (req: Request, res: Response) => {
     res.status(StatusCodes.OK).json({
       success: true,
       message: "✅ Admin data fetched Successfully",
-      data: result,
+      // data: result,
+      meta:result?.meta,
+      data:result?.data
     });
   } catch (err: any) {
     res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
