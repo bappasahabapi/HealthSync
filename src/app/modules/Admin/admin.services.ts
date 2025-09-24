@@ -3,12 +3,14 @@ import { Prisma, PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 const getAdmins = async (params: any) => {
-  console.log({ params });
+  
+  const {searchTerm, ...filterData}=params
 
   //todo: 1st way to handle searchTerm
   const andConditions:Prisma.AdminWhereInput[] =[];
   const adminSearchableFileds =['name','email','contactNumber']
 
+  //searching
   if(params.searchTerm){
     andConditions.push(
       {
@@ -20,6 +22,18 @@ const getAdmins = async (params: any) => {
       }))
     },
     )
+  }
+
+  //filtering
+  //convert to array
+  if(Object.keys(filterData).length > 0){
+    andConditions.push({
+      AND:Object.keys(filterData).map(key=>({
+        [key]:{
+          equals:filterData[key] // match exact search
+        }
+      }))
+    })
   }
 
   // console.dir(andConditions,{depth:'infinity'})

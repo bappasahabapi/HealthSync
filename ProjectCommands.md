@@ -29,6 +29,10 @@ Express:
 
 🍟++++++++++ `basic Skeleton mvc` +++++++++++++
 
+Setup project , npm packages, **prisma** , database connection,
+create user as admin (MVC) and **hash password**
+
+
 🍟`hs-01/project-initiation-analysis`
 
 - 5: First Setup the server:
@@ -54,6 +58,9 @@ After change any model run the migration command
     - `npm i --save-dev @types/bcrypt`
 
 🍟++++++++++`hs-p1:` +++++++++++++
+
+Implement **Searching** **filtering** in admin section
+
 ---
 
 - 1: Response Formatting and Exception HandlingRes
@@ -62,3 +69,4 @@ After change any model run the migration command
 - 3: fImplementing **Search/Filter** Functionality Using searchTerm Query
 - 4: Optimization of Search Code `(admin.services.ts)` file
 - 5: Optimization of Search Code refactoring `(admin.services.ts)` file
+    - Search on specific filed. that means exact search
