@@ -44,7 +44,11 @@ const getAdmins = async (params: any, options:any) => {
   const result = await prisma.admin.findMany({
     where: whereConditions,
     skip:Number((page-1) * limit), // how many data will be skip
-    take:Number(limit) // show how many data in per page
+    take:Number(limit), // show how many data in per page
+    orderBy: options.sortBy && options.sortOrder ?{
+      // createdAt:'desc'       //asc
+      [options.sortBy]: options.sortOrder
+    }:{createdAt:'desc'}
   });
 
   return result;
