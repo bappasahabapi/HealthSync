@@ -8,9 +8,13 @@ import { adminFilterableFields } from "./admin.constant";
 const getAdmins = async (req: Request, res: Response) => {
 
   try {
+
     // pick(req.query,keyName)
     const filters = pick(req.query,adminFilterableFields)
-    const result = await adminService.getAdmins(filters);
+    const options =pick(req.query,['limit','page'])
+    console.log(options)
+
+    const result = await adminService.getAdmins(filters,options);
     res.status(StatusCodes.OK).json({
       success: true,
       message: "✅ Admin data fetched Successfully",

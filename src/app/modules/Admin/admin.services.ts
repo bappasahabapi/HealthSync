@@ -3,8 +3,9 @@ import { adminSearchableFileds } from "./admin.constant";
 
 const prisma = new PrismaClient();
 
-const getAdmins = async (params: any) => {
+const getAdmins = async (params: any, options:any) => {
   
+  const {limit,page}=options;
   const {searchTerm, ...filterData}=params
 
   //todo: 1st way to handle searchTerm
@@ -41,7 +42,9 @@ const getAdmins = async (params: any) => {
   const whereConditions:Prisma.AdminWhereInput= {AND: andConditions}
 
   const result = await prisma.admin.findMany({
-    where: whereConditions
+    where: whereConditions,
+    skip:Number((page-1) * limit), // how many data will be skip
+    take:Number(limit) // show how many data in per page
   });
 
   return result;
