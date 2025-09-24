@@ -1,33 +1,8 @@
 import { Prisma, PrismaClient } from "@prisma/client";
 import { adminSearchableFileds } from "./admin.constant";
+import { calculatePagination } from "../../../helper/paginationHelper";
 
 const prisma = new PrismaClient();
-
-
-type Options= {
-  page?:number,
-  limit?:number,
-  sortBy?:string,
-  sortOrder?:string,
-
-}
-
-const calculatePagination =(options:Options)=>{
-  const page:number =Number(options.page) || 1;
-  const limit:number =Number(options.limit) || 10;
-  const skip:number =Number((page-1) * limit);
-  const sortBy:string =options.sortBy || 'createdAt';
-  const sortOrder:string =options.sortOrder || 'desc';
-
-  return{
-    page,
-    limit,
-    skip,
-    sortBy,
-    sortOrder
-  }
-}
-
 
 
 const getAdmins = async (params: any, options:any) => {
