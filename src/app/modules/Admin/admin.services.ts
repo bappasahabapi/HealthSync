@@ -62,7 +62,7 @@ const getAdmins = async (params: any, options: any) => {
   };
 };
 
-const getAdminById = async (id: string) => {
+const getAdminById = async (id: string):Promise<Admin | null> => {
   const data = await prisma.admin.findUnique({
     where: {
       id: id,
@@ -72,7 +72,7 @@ const getAdminById = async (id: string) => {
   return data;
 };
 
-const updateAdminDB = async (id: string, updatedData: Partial<Admin>) => {
+const updateAdminDB = async (id: string, updatedData: Partial<Admin>):Promise<Admin> => {
   await prisma.admin.findUniqueOrThrow({
     where: { id , isDeleted:false},
   });
@@ -87,7 +87,7 @@ const updateAdminDB = async (id: string, updatedData: Partial<Admin>) => {
   return result;
 };
 
-const deleteAdminDB = async (id: string) => {
+const deleteAdminDB = async (id: string):Promise<Admin> => {
   const result = await prisma.$transaction(async (transactionClient) => {
     //handle if the id is wrong
     await prisma.admin.findUniqueOrThrow({
@@ -102,7 +102,7 @@ const deleteAdminDB = async (id: string) => {
     });
 
     //then delete the userData based on fkey of email
-    const userDeletedData = await prisma.user.delete({
+     await prisma.user.delete({
       where: {
         email: adminDeletedData.email,
       },
