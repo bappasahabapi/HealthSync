@@ -34,6 +34,8 @@ const getAdmins = async (params: any, options: any) => {
       })),
     });
   }
+  //for those whose account is deleted not shown in the admin list
+  andConditions.push({isDeleted:false})
 
   // console.dir(andConditions,{depth:'infinity'})
   const whereConditions: Prisma.AdminWhereInput = { AND: andConditions };
@@ -64,6 +66,7 @@ const getAdminById = async (id: string) => {
   const data = await prisma.admin.findUnique({
     where: {
       id: id,
+      isDeleted:false
     },
   });
   return data;
@@ -71,7 +74,7 @@ const getAdminById = async (id: string) => {
 
 const updateAdminDB = async (id: string, updatedData: Partial<Admin>) => {
   await prisma.admin.findUniqueOrThrow({
-    where: { id },
+    where: { id , isDeleted:false},
   });
 
   const result = await prisma.admin.update({
@@ -115,7 +118,7 @@ const softDeleteFromDB = async (id: string): Promise<Admin | null> => {
     await prisma.admin.findUniqueOrThrow({
         where: {
             id,
-            // isDeleted: false
+            isDeleted: false
         }
     });
 
