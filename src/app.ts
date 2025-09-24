@@ -3,6 +3,7 @@ import cors from 'cors'
 import { userRoutes } from "./app/modules/User/user.routes";
 import { demoRoutes } from "./app/modules/Demo/demo.routes";
 import { adminRoutes } from "./app/modules/Admin/admin.routes";
+import router from "./app/routes";
 
 
 
@@ -19,18 +20,6 @@ app.get('/',(req:Request, res:Response)=>{
     })
 })
 
-
-
-const routes = [
-  { path: '/api/v1/demo', handler: demoRoutes },
-  { path: '/api/v1/user', handler: userRoutes },
-  { path: '/api/v1/admin', handler: adminRoutes },
-];
-
-routes.forEach(route => app.use(route.path, route.handler));
-
-
-// app.use('/api/v1/demo',demoRoutes)
-// app.use('/api/v1/user',userRoutes)
+app.use('/api/v1',router)
 
 export default app;
