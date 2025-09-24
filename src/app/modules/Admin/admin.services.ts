@@ -1,4 +1,4 @@
-import { Admin, Prisma } from "@prisma/client";
+import { Admin, Prisma, UserStatus } from "@prisma/client";
 import { adminSearchableFileds } from "./admin.constant";
 import { calculatePagination } from "../../../helper/paginationHelper";
 import { prisma } from "../../../shared/prisma";
@@ -86,6 +86,11 @@ const updateAdminDB = async (id: string, updatedData: Partial<Admin>) => {
 
 const deleteAdminDB = async (id: string) => {
   const result = await prisma.$transaction(async (transactionClient) => {
+    //handle if the id is wrong
+    await prisma.admin.findUniqueOrThrow({
+      where: { id },
+    });
+
     //first delete from admin table
     const adminDeletedData = await prisma.admin.delete({
       where: {
@@ -94,7 +99,7 @@ const deleteAdminDB = async (id: string) => {
     });
 
     //then delete the userData based on fkey of email
-    const userData = await prisma.user.delete({
+    const userDeletedData = await prisma.user.delete({
       where: {
         email: adminDeletedData.email,
       },
@@ -106,11 +111,45 @@ const deleteAdminDB = async (id: string) => {
   return result;
 };
 
+const softDeleteFromDB = async (id: string): Promise<Admin | null> => {
+    await prisma.admin.findUniqueOrThrow({
+        where: {
+            id,
+            // isDeleted: false
+        }
+    });
+
+    const result = await prisma.$transaction(async (transactionClient) => {
+        const adminDeletedData = await transactionClient.admin.update({
+            where: {
+                id
+            },
+            data: {
+                isDeleted: true
+            }
+        });
+
+       const userDeletedData = await transactionClient.user.update({
+            where: {
+                email: adminDeletedData.email
+            },
+            data: {
+                status: UserStatus.DELETED
+            }
+        });
+
+        return adminDeletedData;
+    });
+
+    return result;
+}
+
 export const adminService = {
   getAdmins,
   getAdminById,
   updateAdminDB,
   deleteAdminDB,
+  softDeleteFromDB
 };
 
 //todo: another way to handle if no searchTerm
