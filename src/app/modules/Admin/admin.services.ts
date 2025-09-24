@@ -1,8 +1,9 @@
-import { Prisma, PrismaClient } from "@prisma/client";
+import { Prisma } from "@prisma/client";
 import { adminSearchableFileds } from "./admin.constant";
 import { calculatePagination } from "../../../helper/paginationHelper";
+import { prisma } from "../../../shared/prisma";
 
-const prisma = new PrismaClient();
+
 
 
 const getAdmins = async (params: any, options:any) => {

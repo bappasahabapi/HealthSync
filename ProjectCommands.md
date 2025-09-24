@@ -59,7 +59,8 @@ After change any model run the migration command
 
 🍟++++++++++`hs-p1:` +++++++++++++
 
-Implement **Searching** **filtering** in admin section
+Implement **Searching**, **filtering** , **data-vaditaion** , **pagination**, **sorting**
+in admin section
 
 ---
 
@@ -69,4 +70,16 @@ Implement **Searching** **filtering** in admin section
 - 3: fImplementing **Search/Filter** Functionality Using searchTerm Query
 - 4: Optimization of Search Code `(admin.services.ts)` file
 - 5: Optimization of Search Code refactoring `(admin.services.ts)` file
-    - Search on specific filed. that means exact search
+- 6:Search on specific filed. and implementing filtering
+- 7: Selecting Valid Data Fields Using the **pick Function**
+    - Enhance the validity of the search . That means it match the exact serach key name
+- 8: Applying Pagination to Results
+
+       - **skip =(page-1)* limit** 
+       - **perPageDataLimit = limit**
+    - Suppose I have 10 data like : 1 2 3 4 5 6 7 88 99 11, and limit = 4
+      - then page 1 will show = 1 2 3 4 || skip = (1-1)*4 =0*4 =0
+      - then page 2 will show = 5 6 7 88 || skip =(2-2)*4 =1*4=4
+      - then page 3 will show = 99 11
+- 9: Creating Reusable Functions for Pagination and Sorting
+- 10: Developing **Reusable Functions for Prisma Client**Constructor and Pagination Calculation
