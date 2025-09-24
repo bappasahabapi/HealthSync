@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import { adminService } from "./admin.services";
 import pick from "../../../shared/pick";
@@ -6,7 +6,7 @@ import { adminFilterableFields } from "./admin.constant";
 import { sendResponse } from "../../../shared/sendResponseFormat";
 
 
-const getAdmins = async (req: Request, res: Response) => {
+const getAdmins = async (req: Request, res: Response,next:NextFunction) => {
 
   try {
     // pick(req.query,keyName)
@@ -26,17 +26,18 @@ const getAdmins = async (req: Request, res: Response) => {
 
     })
   } catch (err: any) {
-    sendResponse(res, {
-    statusCode: StatusCodes.INTERNAL_SERVER_ERROR,
-    success: false,
-    message: err?.message || "❌ Something went wrong",
-    data: null // or you can include the error object if needed
-  });
+  //   sendResponse(res, {
+  //   statusCode: StatusCodes.INTERNAL_SERVER_ERROR,
+  //   success: false,
+  //   message: err?.message || "❌ Something went wrong",
+  //   data: null // or you can include the error object if needed
+  // });
+  next(err)
   }
 };
 
 
-const getAdminById =async(req: Request, res: Response)=>{
+const getAdminById =async(req: Request, res: Response, next:NextFunction)=>{
   const {id} =req?.params;
 
   try{
@@ -47,16 +48,11 @@ const getAdminById =async(req: Request, res: Response)=>{
       data: result,
     });
   }catch (err: any) {
-    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-      success: false,
-      message: err?.message || " ❌ Something went wrong",
-      error: err,
-    });
+    next(err)
   }
-
 };
 
-const updateAdmin =async(req: Request, res: Response)=>{
+const updateAdmin =async(req: Request, res: Response, next:NextFunction)=>{
   const {id} =req?.params;
   console.log(req.body)
 
@@ -68,16 +64,11 @@ const updateAdmin =async(req: Request, res: Response)=>{
       message: "✅ Admin data updated Successfully",
       data: result,
     });
-  }catch (err: any) {
-    sendResponse(res, {
-      statusCode: StatusCodes.INTERNAL_SERVER_ERROR,
-      success: false,
-      message: err?.message || "❌ Something went wrong",
-      data: null,
-    });
+  }catch (err) {
+    next(err)
   }
 };
-const deleteAdmin =async(req: Request, res: Response)=>{
+const deleteAdmin =async(req: Request, res: Response, next:NextFunction)=>{
   const {id} =req?.params;
 
    try{
@@ -89,15 +80,10 @@ const deleteAdmin =async(req: Request, res: Response)=>{
       data: result,
     });
   }catch (err: any) {
-   sendResponse(res, {
-      statusCode: StatusCodes.INTERNAL_SERVER_ERROR,
-      success: false,
-      message: err?.message || "❌ Something went wrong",
-      data: null,
-    });
+   next(err)
   }
 };
-const softDeleteFromDB =async(req: Request, res: Response)=>{
+const softDeleteFromDB =async(req: Request, res: Response,next:NextFunction)=>{
   const {id} =req?.params;
 
    try{
@@ -109,12 +95,7 @@ const softDeleteFromDB =async(req: Request, res: Response)=>{
       data: result,
     });
   }catch (err: any) {
-    sendResponse(res, {
-      statusCode: StatusCodes.INTERNAL_SERVER_ERROR,
-      success: false,
-      message: err?.message || "❌ Something went wrong",
-      data: null,
-    });
+    next(err)
   }
 };
 
