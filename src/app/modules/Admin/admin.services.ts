@@ -6,36 +6,23 @@ const getAdmins = async (params: any) => {
   console.log({ params });
 
   //todo: 1st way to handle searchTerm
-  //set all conditon in of search and filterling
   const andConditions:Prisma.AdminWhereInput[] =[];
+  const adminSearchableFileds =['name','email','contactNumber']
+
   if(params.searchTerm){
     andConditions.push(
       {
-      OR: [
-        {
-          name: {
-            contains: params.searchTerm,
-            mode: "insensitive", // optional, case-insensitive search
-          },
-        },
-        {
-             email:{
+      OR:adminSearchableFileds?.map(field=>({
+         [field]:{
             contains: params.searchTerm,
             mode: "insensitive",
           }
-        },
-        {
-             contactNumber:{
-            contains: params.searchTerm,
-            mode: "insensitive",
-          }
-        }
-      ],
+      }))
     },
     )
   }
 
-  console.dir(andConditions,{depth:'infinity'})
+  // console.dir(andConditions,{depth:'infinity'})
   const whereConditions:Prisma.AdminWhereInput= {AND: andConditions}
 
   const result = await prisma.admin.findMany({
