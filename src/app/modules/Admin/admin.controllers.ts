@@ -74,9 +74,28 @@ const updateAdmin =async(req: Request, res: Response)=>{
     });
   }
 };
+const deleteAdmin =async(req: Request, res: Response)=>{
+  const {id} =req?.params;
+
+   try{
+    const result =await adminService.deleteAdminDB(id)
+      res.status(StatusCodes.OK).json({
+      success: true,
+      message: "✅ Admin data deleted Successfully",
+      data: result,
+    });
+  }catch (err: any) {
+    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+      success: false,
+      message: err?.name || " ❌ Something went wrong",
+      error: err,
+    });
+  }
+};
 
 export const adminCotroller = {
   getAdmins,
   getAdminById,
-  updateAdmin
+  updateAdmin,
+  deleteAdmin
 };
