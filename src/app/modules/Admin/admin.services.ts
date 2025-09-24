@@ -3,9 +3,37 @@ import { adminSearchableFileds } from "./admin.constant";
 
 const prisma = new PrismaClient();
 
+
+type Options= {
+  page?:number,
+  limit?:number,
+  sortBy?:string,
+  sortOrder?:string,
+
+}
+
+const calculatePagination =(options:Options)=>{
+  const page:number =Number(options.page) || 1;
+  const limit:number =Number(options.limit) || 10;
+  const skip:number =Number((page-1) * limit);
+  const sortBy:string =options.sortBy || 'createdAt';
+  const sortOrder:string =options.sortOrder || 'desc';
+
+  return{
+    page,
+    limit,
+    skip,
+    sortBy,
+    sortOrder
+  }
+}
+
+
+
 const getAdmins = async (params: any, options:any) => {
   
-  const {limit,page}=options;
+  // const {limit,page}=options;
+  const {limit,page,skip,sortBy,sortOrder}=calculatePagination(options);
   const {searchTerm, ...filterData}=params
 
   //todo: 1st way to handle searchTerm
@@ -43,8 +71,8 @@ const getAdmins = async (params: any, options:any) => {
 
   const result = await prisma.admin.findMany({
     where: whereConditions,
-    skip:Number((page-1) * limit), // how many data will be skip
-    take:Number(limit), // show how many data in per page
+    skip:skip, // how many data will be skip
+    take:limit, // show how many data in per page
     orderBy: options.sortBy && options.sortOrder ?{
       // createdAt:'desc'       //asc
       [options.sortBy]: options.sortOrder
