@@ -1,4 +1,5 @@
 import { Prisma, PrismaClient } from "@prisma/client";
+import { adminSearchableFileds } from "./admin.constant";
 
 const prisma = new PrismaClient();
 
@@ -8,7 +9,7 @@ const getAdmins = async (params: any) => {
 
   //todo: 1st way to handle searchTerm
   const andConditions:Prisma.AdminWhereInput[] =[];
-  const adminSearchableFileds =['name','email','contactNumber']
+
 
   //searching
   if(params.searchTerm){
