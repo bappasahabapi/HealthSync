@@ -55,7 +55,28 @@ const getAdminById =async(req: Request, res: Response)=>{
 
 };
 
+const updateAdmin =async(req: Request, res: Response)=>{
+  const {id} =req?.params;
+  console.log(req.body)
+
+   try{
+    const result =await adminService.updateAdminDB(id,req.body)
+      res.status(StatusCodes.OK).json({
+      success: true,
+      message: "✅ Admin data updated Successfully",
+      data: result,
+    });
+  }catch (err: any) {
+    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+      success: false,
+      message: err?.message || " ❌ Something went wrong",
+      error: err,
+    });
+  }
+};
+
 export const adminCotroller = {
   getAdmins,
-  getAdminById
+  getAdminById,
+  updateAdmin
 };
