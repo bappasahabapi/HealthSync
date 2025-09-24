@@ -1,5 +1,4 @@
-// import { PrismaClient,UserRole  } from "@prisma/client" //this is used in old version of prisma
-import { PrismaClient, UserRole } from "../../../generated/prisma"
+import { PrismaClient,UserRole  } from "@prisma/client" 
 import * as bcrypt from "bcrypt";
 
 const prisma =new PrismaClient();
