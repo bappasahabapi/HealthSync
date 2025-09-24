@@ -32,7 +32,8 @@ Initially Start the project based on this table. In future we will update the ta
 - ⬇ get: http://localhost:4001/api/v1/admin?="admin1"
 - ⬆ post: http://localhost:4001/api/v1/user"
 - ↻ update: http://localhost:4001/api/v1/admin/:id
-- ✄ delete: http://localhost:4001/api/v1/admin/:id
+- ✄ delete: http://localhost:4001/api/v1/admin/:id       👍[hard delete]
+- ✄ delete: http://localhost:4001/api/v1/admin/soft/:id  👍[change the status only]
 
 ---
 **user**

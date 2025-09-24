@@ -8,7 +8,7 @@
 ### 🩺 🏥 HealthSync:
 TypeScript,NodeJS, Express, Prisma, WEB RTC (via Agora.io), and PostgreSQL
 
-🚑 Smart HealthSync Management System | Patient–Doctor Communication Platform
+🚑 Smart Health Management System | Patient–Doctor Communication Platform
 
 
 ---
@@ -117,3 +117,8 @@ prescription delivery.
     - All about seaching, filtering sorting pagination of admin section
 - 🍟 hs-p2/admin-functionality
     - 
+
+
+
+
+@ 
