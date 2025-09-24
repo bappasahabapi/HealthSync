@@ -2,6 +2,7 @@ import express, { Application, NextFunction, Request, Response } from "express";
 import cors from 'cors'
 import router from "./app/routes";
 import { StatusCodes } from "http-status-codes";
+import globalErrorHandler from "./app/middlewares/globalErrorHandler";
 
 
 
@@ -20,14 +21,6 @@ app.get('/',(req:Request, res:Response)=>{
 
 app.use('/api/v1',router)
 
-app.use((err:Error,req:Request, res:Response,next:NextFunction)=>{
-  console.log('Global Error!!!')
-  res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-    success:false,
-    message:err.name || "Something went worong from global part",
-    error: err
-
-  })
-})
+app.use(globalErrorHandler)
 
 export default app;
