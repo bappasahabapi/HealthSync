@@ -27,13 +27,13 @@ Express:
 
 ## 2. Step by Step:
 
-🍟++++++++++ `basic Skeleton mvc` +++++++++++++
+####   `basic Skeleton mvc` 
 
 Setup project , npm packages, **prisma** , database connection,
 create user as admin (MVC) and **hash password**
 
 
-🍟`hs-01/project-initiation-analysis`
+####   🍟`hs-01/project-initiation-analysis`
 
 - 5: First Setup the server:
 - 6: Migration of User & Admin Models/Prisma Schema
@@ -41,7 +41,7 @@ create user as admin (MVC) and **hash password**
     - then migrate the schema `npx prisma migrate dev`
 - 7: Implementation of User Routes, Controllers, and Services    
 
-🍟` hs-02/user-admin`
+####   🍟` hs-02/user-admin`
 
 After change any model run the migration command
     - `px prisma migrate dev` 
@@ -51,12 +51,12 @@ After change any model run the migration command
     - Here I have to first make the user and then at the same time I need to make this an admin.
     - thats wsy we need transaction . first data will hit users table and then admin table
 
-🍟 `hs-03/password-hashing`
+####   🍟 `hs-03/password-hashing`
 - 10: Implementation of Password Hashing
     - [bcrypt](https://www.npmjs.com/package/bcrypt) 
     - `npm i bcrypt`
     - `npm i --save-dev @types/bcrypt`
-
+---
 🍟++++++++++`hs-p1:` +++++++++++++
 
 Implement **Searching**, **filtering** , **data-vaditaion** , **pagination**, **sorting**
@@ -85,7 +85,7 @@ in admin section
 - 10: Developing **Reusable Functions for Prisma Client**Constructor and Pagination Calculation
 
 
-🍟++++++++++`hs-p2/admin-fuctionality` +++++++++++++
+####   🍟++++++++++`hs-p2/admin-fuctionality` +++++++++++++
 
  fix metadata, response format, http status code, CRUD of admin, global error hadling(next())
 
@@ -104,3 +104,10 @@ in admin section
     - http-status-codes added
 - 9: Implementing Global Error Handler using **next function**
 - 10: Managing Not Found Routes
+
+
+####   🍟++++++++++`hs-p3/admin-token`
+
+Request-validation, Global try-catch, middleware , login, token work
+
+- 1: Reduce `Try-Catch Redundancy`
