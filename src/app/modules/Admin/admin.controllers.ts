@@ -4,16 +4,8 @@ import { adminService } from "./admin.services";
 import pick from "../../../shared/pick";
 import { adminFilterableFields } from "./admin.constant";
 import { sendResponse } from "../../../shared/sendResponseFormat";
+import { catchAsync } from "../../../shared/catchAsync";
 
-const catchAsync = (fn: RequestHandler) => {
-  return async (req: Request, res: Response, next: NextFunction) => {
-    try {
-      await fn(req, res, next);
-    } catch (err) {
-      next(err);
-    }
-  };
-};
 
 const getAdmins: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
@@ -48,11 +40,9 @@ const getAdminById = catchAsync(async (
   
 })
 
-const updateAdmin = async (req: Request, res: Response, next: NextFunction) => {
+const updateAdmin = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
   const { id } = req?.params;
-  console.log(req.body);
 
-  try {
     const result = await adminService.updateAdminDB(id, req.body);
     sendResponse(res, {
       statusCode: StatusCodes.OK,
@@ -60,11 +50,8 @@ const updateAdmin = async (req: Request, res: Response, next: NextFunction) => {
       message: "✅ Admin data updated Successfully",
       data: result,
     });
-  } catch (err) {
-    next(err);
-  }
-};
-const deleteAdmin = async (req: Request, res: Response, next: NextFunction) => {
+});
+const deleteAdmin = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
   const { id } = req?.params;
 
   try {
@@ -78,8 +65,9 @@ const deleteAdmin = async (req: Request, res: Response, next: NextFunction) => {
   } catch (err: any) {
     next(err);
   }
-};
-const softDeleteFromDB = async (
+});
+
+const softDeleteFromDB = catchAsync(async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -97,7 +85,7 @@ const softDeleteFromDB = async (
   } catch (err: any) {
     next(err);
   }
-};
+});
 
 export const adminCotroller = {
   getAdmins,
