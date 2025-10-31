@@ -1,0 +1,989 @@
+{
+	"info": {
+		"_postman_id": "9a2db2aa-b637-4584-937a-380693ba5826",
+		"name": "HealthSync2025",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27709095"
+	},
+	"item": [
+		{
+			"name": "00-User",
+			"item": [
+				{
+					"name": "01-Admin",
+					"item": [
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"password\":\"123456\",\n    \"admin\":{\n        \"name\":\"test1-admin\",\n        \"email\":\"test1-admin@gmail.com\",\n        \"contactNumber\":\"100000001\"\n        \n    }\n}\n\n// {\n//     \"password\":\"123456\",\n//     \"admin\":{\n//         \"name\":\"admin7\",\n//         \"email\":\"admin7@gmail.com\",\n//         \"contactNumber\":\"007\"\n        \n//     }\n// }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4001/api/v1/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4001",
+									"path": [
+										"api",
+										"v1",
+										"user"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Create-Admin",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"password\":\"123456\",\n    \"admin\":{\n        \"name\":\"admin4\",\n        \"email\":\"admin4@gmail.com\",\n        \"contactNumber\":\"012345678914\"\n        \n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:4001/api/v1/user",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "4001",
+											"path": [
+												"api",
+												"v1",
+												"user"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "302"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"12e-NBjaZOKbEXZmkXcl3ael22k8tKY\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 23 Sep 2025 21:07:58 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"message\": \"✅ Admin Created Successfully\",\n    \"data\": {\n        \"id\": \"7e44bc62-17a5-443d-9030-bbffc575a34e\",\n        \"name\": \"admin4\",\n        \"email\": \"admin4@gmail.com\",\n        \"profilePhoto\": null,\n        \"contactNumber\": \"012345678914\",\n        \"isDeleted\": false,\n        \"createdAt\": \"2025-09-23T21:07:58.188Z\",\n        \"updatedAt\": \"2025-09-23T21:07:58.188Z\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"name\":\"update\",\n        \"contactNumber\":\"0000000\"\n        // we can not update the email as it is foreign key of user table.\n        \n}\n\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4001/api/v1/admin/fa6976b7-dd0b-4902-a2ce-af993fd9ce7",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4001",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"fa6976b7-dd0b-4902-a2ce-af993fd9ce7"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Create-Admin",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"password\":\"123456\",\n    \"admin\":{\n        \"name\":\"admin4\",\n        \"email\":\"admin4@gmail.com\",\n        \"contactNumber\":\"012345678914\"\n        \n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:4001/api/v1/user",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "4001",
+											"path": [
+												"api",
+												"v1",
+												"user"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "302"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"12e-NBjaZOKbEXZmkXcl3ael22k8tKY\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 23 Sep 2025 21:07:58 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"message\": \"✅ Admin Created Successfully\",\n    \"data\": {\n        \"id\": \"7e44bc62-17a5-443d-9030-bbffc575a34e\",\n        \"name\": \"admin4\",\n        \"email\": \"admin4@gmail.com\",\n        \"profilePhoto\": null,\n        \"contactNumber\": \"012345678914\",\n        \"isDeleted\": false,\n        \"createdAt\": \"2025-09-23T21:07:58.188Z\",\n        \"updatedAt\": \"2025-09-23T21:07:58.188Z\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4001/api/v1/admin/6f4e3054-f3ad-423a-a946-cf56af545dc01",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4001",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"6f4e3054-f3ad-423a-a946-cf56af545dc01"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Create-Admin",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"password\":\"123456\",\n    \"admin\":{\n        \"name\":\"admin4\",\n        \"email\":\"admin4@gmail.com\",\n        \"contactNumber\":\"012345678914\"\n        \n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:4001/api/v1/user",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "4001",
+											"path": [
+												"api",
+												"v1",
+												"user"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "302"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"12e-NBjaZOKbEXZmkXcl3ael22k8tKY\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 23 Sep 2025 21:07:58 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"message\": \"✅ Admin Created Successfully\",\n    \"data\": {\n        \"id\": \"7e44bc62-17a5-443d-9030-bbffc575a34e\",\n        \"name\": \"admin4\",\n        \"email\": \"admin4@gmail.com\",\n        \"profilePhoto\": null,\n        \"contactNumber\": \"012345678914\",\n        \"isDeleted\": false,\n        \"createdAt\": \"2025-09-23T21:07:58.188Z\",\n        \"updatedAt\": \"2025-09-23T21:07:58.188Z\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "soft-delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4001/api/v1/admin/soft/6f4e3054-f3ad-423a-a946-cf56af545dc0",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4001",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"soft",
+										"6f4e3054-f3ad-423a-a946-cf56af545dc0"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Create-Admin",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"password\":\"123456\",\n    \"admin\":{\n        \"name\":\"admin4\",\n        \"email\":\"admin4@gmail.com\",\n        \"contactNumber\":\"012345678914\"\n        \n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:4001/api/v1/user",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "4001",
+											"path": [
+												"api",
+												"v1",
+												"user"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "302"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"12e-NBjaZOKbEXZmkXcl3ael22k8tKY\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 23 Sep 2025 21:07:58 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"message\": \"✅ Admin Created Successfully\",\n    \"data\": {\n        \"id\": \"7e44bc62-17a5-443d-9030-bbffc575a34e\",\n        \"name\": \"admin4\",\n        \"email\": \"admin4@gmail.com\",\n        \"profilePhoto\": null,\n        \"contactNumber\": \"012345678914\",\n        \"isDeleted\": false,\n        \"createdAt\": \"2025-09-23T21:07:58.188Z\",\n        \"updatedAt\": \"2025-09-23T21:07:58.188Z\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "All",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"password\":\"123456\",\n    \"admin\":{\n        \"name\":\"admin1\",\n        \"email\":\"admin1@gmail.com\",\n        \"contactNumber\":\"012345678911\"\n        \n    }\n}"
+								},
+								"url": {
+									"raw": "http://localhost:4001/api/v1/admin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4001",
+									"path": [
+										"api",
+										"v1",
+										"admin"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get-all-admins",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"password\":\"123456\",\n    \"admin\":{\n        \"name\":\"admin1\",\n        \"email\":\"admin1@gmail.com\",\n        \"contactNumber\":\"012345678911\"\n        \n    }\n}"
+										},
+										"url": {
+											"raw": "http://localhost:4001/api/v1/admin",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "4001",
+											"path": [
+												"api",
+												"v1",
+												"admin"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "543"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"21f-Lz42EFq76uXKOOfGHmCOvjAJgdo\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 23 Sep 2025 20:12:42 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"message\": \"✅ Admin data fetched Successfully\",\n    \"data\": [\n        {\n            \"id\": \"264fc4c2-7bbf-495f-84bb-d94847fbee1d\",\n            \"name\": \"admin\",\n            \"email\": \"admin@gmail.com\",\n            \"profilePhoto\": null,\n            \"contactNumber\": \"012345678911\",\n            \"isDeleted\": false,\n            \"createdAt\": \"2025-09-23T15:38:17.700Z\",\n            \"updatedAt\": \"2025-09-23T15:38:17.700Z\"\n        },\n        {\n            \"id\": \"77eee329-be49-4d2b-aa5c-6342531e151f\",\n            \"name\": \"admin1\",\n            \"email\": \"admin1@gmail.com\",\n            \"profilePhoto\": null,\n            \"contactNumber\": \"012345678911\",\n            \"isDeleted\": false,\n            \"createdAt\": \"2025-09-23T19:12:13.098Z\",\n            \"updatedAt\": \"2025-09-23T19:12:13.098Z\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Search",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"password\":\"123456\",\n    \"admin\":{\n        \"name\":\"admin1\",\n        \"email\":\"admin1@gmail.com\",\n        \"contactNumber\":\"012345678911\"\n        \n    }\n}"
+								},
+								"url": {
+									"raw": "http://localhost:4001/api/v1/admin?searchTerm=admin4&contactNumber=012345678914&emaillllssss=admin5@gmail.com&name=admin4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4001",
+									"path": [
+										"api",
+										"v1",
+										"admin"
+									],
+									"query": [
+										{
+											"key": "searchTerm",
+											"value": "admin4",
+											"description": "unique"
+										},
+										{
+											"key": "email",
+											"value": "admin4@gmail.com",
+											"description": "unique",
+											"disabled": true
+										},
+										{
+											"key": "contactNumber",
+											"value": "012345678914"
+										},
+										{
+											"key": "emaillllssss",
+											"value": "admin5@gmail.com"
+										},
+										{
+											"key": "name",
+											"value": "admin4"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "All Copy",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"password\":\"123456\",\n    \"admin\":{\n        \"name\":\"admin1\",\n        \"email\":\"admin1@gmail.com\",\n        \"contactNumber\":\"012345678911\"\n        \n    }\n}"
+										},
+										"url": {
+											"raw": "http://localhost:4001/api/v1/admin?searchTerm=012345678911",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "4001",
+											"path": [
+												"api",
+												"v1",
+												"admin"
+											],
+											"query": [
+												{
+													"key": "searchTerm",
+													"value": "admin1",
+													"disabled": true
+												},
+												{
+													"key": "searchTerm",
+													"value": "admin1@gmail.com",
+													"disabled": true
+												},
+												{
+													"key": "searchTerm",
+													"value": "012345678911"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "543"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"21f-Lz42EFq76uXKOOfGHmCOvjAJgdo\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 23 Sep 2025 21:00:35 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"message\": \"✅ Admin data fetched Successfully\",\n    \"data\": [\n        {\n            \"id\": \"264fc4c2-7bbf-495f-84bb-d94847fbee1d\",\n            \"name\": \"admin\",\n            \"email\": \"admin@gmail.com\",\n            \"profilePhoto\": null,\n            \"contactNumber\": \"012345678911\",\n            \"isDeleted\": false,\n            \"createdAt\": \"2025-09-23T15:38:17.700Z\",\n            \"updatedAt\": \"2025-09-23T15:38:17.700Z\"\n        },\n        {\n            \"id\": \"77eee329-be49-4d2b-aa5c-6342531e151f\",\n            \"name\": \"admin1\",\n            \"email\": \"admin1@gmail.com\",\n            \"profilePhoto\": null,\n            \"contactNumber\": \"012345678911\",\n            \"isDeleted\": false,\n            \"createdAt\": \"2025-09-23T19:12:13.098Z\",\n            \"updatedAt\": \"2025-09-23T19:12:13.098Z\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "pagination",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"password\":\"123456\",\n    \"admin\":{\n        \"name\":\"admin1\",\n        \"email\":\"admin1@gmail.com\",\n        \"contactNumber\":\"012345678911\"\n        \n    }\n}"
+								},
+								"url": {
+									"raw": "http://localhost:4001/api/v1/admin?searchTerm=admin2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4001",
+									"path": [
+										"api",
+										"v1",
+										"admin"
+									],
+									"query": [
+										{
+											"key": "searchTerm",
+											"value": "admin2"
+										},
+										{
+											"key": "email",
+											"value": "admin4@gmail.com",
+											"description": "unique",
+											"disabled": true
+										},
+										{
+											"key": "contactNumber",
+											"value": "012345678914",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "2",
+											"disabled": true
+										},
+										{
+											"key": "sortBy",
+											"value": "name",
+											"description": "name , email, contactNumber",
+											"disabled": true
+										},
+										{
+											"key": "sortOrder",
+											"value": "desc",
+											"description": "asc",
+											"disabled": true
+										},
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "All Copy",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"password\":\"123456\",\n    \"admin\":{\n        \"name\":\"admin1\",\n        \"email\":\"admin1@gmail.com\",\n        \"contactNumber\":\"012345678911\"\n        \n    }\n}"
+										},
+										"url": {
+											"raw": "http://localhost:4001/api/v1/admin?searchTerm=012345678911",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "4001",
+											"path": [
+												"api",
+												"v1",
+												"admin"
+											],
+											"query": [
+												{
+													"key": "searchTerm",
+													"value": "admin1",
+													"disabled": true
+												},
+												{
+													"key": "searchTerm",
+													"value": "admin1@gmail.com",
+													"disabled": true
+												},
+												{
+													"key": "searchTerm",
+													"value": "012345678911"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "543"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"21f-Lz42EFq76uXKOOfGHmCOvjAJgdo\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 23 Sep 2025 21:00:35 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"message\": \"✅ Admin data fetched Successfully\",\n    \"data\": [\n        {\n            \"id\": \"264fc4c2-7bbf-495f-84bb-d94847fbee1d\",\n            \"name\": \"admin\",\n            \"email\": \"admin@gmail.com\",\n            \"profilePhoto\": null,\n            \"contactNumber\": \"012345678911\",\n            \"isDeleted\": false,\n            \"createdAt\": \"2025-09-23T15:38:17.700Z\",\n            \"updatedAt\": \"2025-09-23T15:38:17.700Z\"\n        },\n        {\n            \"id\": \"77eee329-be49-4d2b-aa5c-6342531e151f\",\n            \"name\": \"admin1\",\n            \"email\": \"admin1@gmail.com\",\n            \"profilePhoto\": null,\n            \"contactNumber\": \"012345678911\",\n            \"isDeleted\": false,\n            \"createdAt\": \"2025-09-23T19:12:13.098Z\",\n            \"updatedAt\": \"2025-09-23T19:12:13.098Z\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Single",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"password\":\"123456\",\n    \"admin\":{\n        \"name\":\"admin1\",\n        \"email\":\"admin1@gmail.com\",\n        \"contactNumber\":\"012345678911\"\n        \n    }\n}"
+								},
+								"url": {
+									"raw": "http://localhost:4001/api/v1/admin/6a349f34-f5de-4b17-93d7-1817cc52005d",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4001",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"6a349f34-f5de-4b17-93d7-1817cc52005d"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "6a349f34-f5de-4b17-93d7-1817cc52005d",
+											"description": "provide a valid admin id",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "not-found-route-test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4001/api/v1/admin/not/23456",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						"not",
+						"23456"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create-Admin",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\":\"123456\",\n    \"admin\":{\n        \"name\":\"admin4\",\n        \"email\":\"admin4@gmail.com\",\n        \"contactNumber\":\"012345678914\"\n        \n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4001/api/v1/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4001",
+							"path": [
+								"api",
+								"v1",
+								"user"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "302"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"12e-NBjaZOKbEXZmkXcl3ael22k8tKY\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 23 Sep 2025 21:07:58 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"✅ Admin Created Successfully\",\n    \"data\": {\n        \"id\": \"7e44bc62-17a5-443d-9030-bbffc575a34e\",\n        \"name\": \"admin4\",\n        \"email\": \"admin4@gmail.com\",\n        \"profilePhoto\": null,\n        \"contactNumber\": \"012345678914\",\n        \"isDeleted\": false,\n        \"createdAt\": \"2025-09-23T21:07:58.188Z\",\n        \"updatedAt\": \"2025-09-23T21:07:58.188Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Dummy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4001/api/v1/dummy",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"v1",
+						"dummy"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4001/api/v1/dummy",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4001",
+							"path": [
+								"api",
+								"v1",
+								"dummy"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "55"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"37-VICQHd6yEU7dnSovzv7Ox0KRtR4\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 31 Oct 2025 08:40:40 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Dummy User Created of Class based pattern\"\n}"
+				}
+			]
+		}
+	]
+}
