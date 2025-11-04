@@ -120,3 +120,5 @@ Request-validation, Global try-catch, middleware , login, token work
 
 - 5: Creating User Login Functionality
 - 6: Generating Access Tokens for User Login
+- 7: Generating Refresh Tokens and Setting It on Cookie
+<!-- - 8: Building jwtHelper for Token Generation -->
