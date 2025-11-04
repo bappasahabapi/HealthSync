@@ -34,9 +34,21 @@ const loginUser =async(data:TloginData)=>{
 
     // return userData;
 
+    // 6. crate refresh token and set it as httpOnly means(keep this in cookies)
+    const refreshToken =jwt.sign({
+        email:userData.email,
+        role:userData.role
+    },'secretkey2',{
+        algorithm:"HS256",
+        expiresIn:"90d"
+    });
+
+
+
     //4. now update which data we send as response
     return{
         accessToken,
+        refreshToken,
         needPasswordChange :userData.needPasswordChange
     }
 };
