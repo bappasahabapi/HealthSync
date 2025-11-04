@@ -27,12 +27,13 @@ const loginUser =async(data:TloginData)=>{
         expiresIn:"30m"
     });
 
-    console.log(accessToken)
+    // return userData;
 
-
-
-    
-    return userData;
+    //4. now update which data we send as response
+    return{
+        accessToken,
+        needPasswordChange :userData.needPasswordChange
+    }
 };
 
 
