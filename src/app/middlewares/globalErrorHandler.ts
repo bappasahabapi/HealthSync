@@ -7,7 +7,8 @@ const globalErrorHandler = (err: any, req: Request, res: Response, next: NextFun
     console.log('Global Error !!!')
     res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
         success: false,
-        message: err.name || "Something went wrong! from global part",
+        // message: err.name || "Something went wrong! from global part",
+        message: err.message || "Something went wrong! from global part",
         error: err
     })
 };

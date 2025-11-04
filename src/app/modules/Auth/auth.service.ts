@@ -18,6 +18,11 @@ const loginUser =async(data:TloginData)=>{
     //2. check data.pass with userData.pass which is in  database stored data
     const isCorrectPassword:boolean=await bcyrpt.compare(data.password,userData.password);
 
+    // 5. show error if not matched this will fix the issue of not sending access token if password is incorrect
+    if(!isCorrectPassword){
+        throw new Error("Password is not correct")
+    }
+
     //3. next make jwt token: what types of things i want to store
     const accessToken =jwt.sign({
         email:userData.email,
