@@ -5,7 +5,7 @@ export const catchAsync = (fn: RequestHandler) => {
     try {
       await fn(req, res, next);
     } catch (err) {
-      next(err);
+      next(err); // it means calling the global error handler
     }
   };
 };

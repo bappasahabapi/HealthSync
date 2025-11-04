@@ -73,6 +73,7 @@ const getAdminById = async (id: string):Promise<Admin | null> => {
 };
 
 const updateAdminDB = async (id: string, updatedData: Partial<Admin>):Promise<Admin> => {
+  console.log('checker...')
   await prisma.admin.findUniqueOrThrow({
     where: { id , isDeleted:false},
   });

@@ -111,3 +111,9 @@ in admin section
 Request-validation, Global try-catch, middleware , login, token work
 
 - 1: Reduce `Try-Catch Redundancy`
+- 2: Implementing Request Validation Middleware: P-1
+- 3: Implementing Request Validation Middleware: P-2 
+    - `admin.route` working file: update route part
+    -Check validation to req.body data: thats why we need zod package [npm i zod]
+    - To handle the validation first install zod
+    - then make a zod schema
