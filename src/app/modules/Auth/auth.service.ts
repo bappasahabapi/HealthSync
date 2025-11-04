@@ -43,6 +43,8 @@ const loginUser =async(data:TloginData)=>{
         expiresIn:"90d"
     });
 
+    //7. set refresh token in cookies from controller
+
 
 
     //4. now update which data we send as response
