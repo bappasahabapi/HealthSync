@@ -118,4 +118,5 @@ Request-validation, Global try-catch, middleware , login, token work
     - To handle the validation first install zod
     - then make a zod schema
 
-- 5 Creating User Login Functionality
+- 5: Creating User Login Functionality
+- 6: Generating Access Tokens for User Login
