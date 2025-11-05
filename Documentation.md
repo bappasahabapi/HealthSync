@@ -127,3 +127,5 @@ Request-validation, Global try-catch, middleware , login, token work
 - 10: Generating Access Token Using Refresh Token
     - first check is the token is valid or not
 - 11: Resolving Type Errors and Adding User Status Filter to Find Active Users
+- 12: configure environment variable
+    - install dotenv
