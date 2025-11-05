@@ -9,24 +9,40 @@ const loginUser = catchAsync(async (req: Request, res: Response) => {
   const result = await AuthService.loginUser(req.body);
 
   //7. set refresh token in cookies from controller
-  const {refreshToken}=result;
-  res.cookie('refreshToken',refreshToken,{
-    secure:false, //in devlopment
-    httpOnly:true
+  const { refreshToken } = result;
+  res.cookie("refreshToken", refreshToken, {
+    secure: false, //in devlopment
+    httpOnly: true,
   });
 
   res.status(StatusCodes.OK).json({
     success: true,
     message: "User Logged in successfully",
     // data: result,
-    data:{
-      accessToken:result.accessToken,
-      needPasswordChange:result.needPasswordChange
-    }
+    data: {
+      accessToken: result.accessToken,
+      needPasswordChange: result.needPasswordChange,
+    },
   });
 });
 
+const refreshToken = catchAsync(async (req: Request, res: Response) => {
 
-export const AuthController={
-    loginUser
-}
+  const {refreshToken}=req.cookies;
+  const result = await AuthService.refreshToken(refreshToken);
+
+  res.status(StatusCodes.OK).json({
+    success: true,
+    message: "Generate Access Token successfully",
+    data: result,
+    // data: {
+    //   accessToken: result.accessToken,
+    //   needPasswordChange: result.needPasswordChange,
+    // },
+  });
+});
+
+export const AuthController = {
+  loginUser,
+  refreshToken,
+};

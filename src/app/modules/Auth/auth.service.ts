@@ -51,6 +51,12 @@ const loginUser = async (data: TloginData) => {
   };
 };
 
+//todo:for creating access token from refresh token
+ const refreshToken =(token:string)=>{
+    console.log('refreshToken...',token)
+ };
+
 export const AuthService = {
   loginUser,
+  refreshToken
 };
