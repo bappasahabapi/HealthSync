@@ -1,8 +1,9 @@
-import jwt, { JwtPayload } from "jsonwebtoken";
+import jwt, { JwtPayload, Secret } from "jsonwebtoken";
 import { prisma } from "../../../shared/prisma";
 import * as bcyrpt from "bcrypt";
 import { jwtHelpers } from "../../../helper/jwtHelpers";
 import { UserStatus } from "@prisma/client";
+import config from "../../../config";
 // import jwt from "jsonwebtoken";
 
 type TloginData = {
@@ -32,15 +33,19 @@ const loginUser = async (data: TloginData) => {
   //3. next make jwt token: what types of things i want to store
   const accessToken = jwtHelpers.generateToken(
     { email: userData.email, role: userData.role },
-    "secretkey",
-    "30m"
+    // "secretkey",
+    // "30m"
+    config.jwt.jwt_secret as Secret,
+    config.jwt.jwt_expire_in as string
   );
 
   // 6. crate refresh token and set it as httpOnly means(keep this in cookies)
   const refreshToken = jwtHelpers.generateToken(
     { email: userData.email, role: userData.role },
-    "secretkey2",
-    "30m"
+    // "secretkey2",
+    // "30m"
+    config.jwt.refresh_token as Secret,
+    config.jwt.refresh_token_expire_in as string
   );
 
   //7. set refresh token in cookies from controller
