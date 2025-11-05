@@ -2,6 +2,7 @@ import jwt, { JwtPayload } from "jsonwebtoken";
 import { prisma } from "../../../shared/prisma";
 import * as bcyrpt from "bcrypt";
 import { jwtHelpers } from "../../../helper/jwtHelpers";
+import { UserStatus } from "@prisma/client";
 // import jwt from "jsonwebtoken";
 
 type TloginData = {
@@ -13,6 +14,7 @@ const loginUser = async (data: TloginData) => {
   const userData = await prisma.user.findUniqueOrThrow({
     where: {
       email: data.email,
+      status:UserStatus.ACTIVE // only active user can login
     },
   });
 
@@ -55,7 +57,7 @@ const loginUser = async (data: TloginData) => {
 const refreshToken = async(token: string) => {
   let decodedToken;
   try {
-    decodedToken = jwt.verify(token, "secretkey2") as JwtPayload;
+    decodedToken = jwtHelpers.varifyToken(token,'secretkey2')
     console.log(decodedToken);
   } catch (error) {
     throw new Error("You are not authorized! login first");
@@ -64,7 +66,8 @@ const refreshToken = async(token: string) => {
 
   const userData =await prisma.user.findFirstOrThrow({
     where:{
-        email:decodedToken?.email 
+        email:decodedToken?.email ,
+        status:UserStatus.ACTIVE // only active user can login {optional if situation need only active user can or the table has status column}
     }
   });
 
