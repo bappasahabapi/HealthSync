@@ -1,7 +1,7 @@
-
-import { jwtHelpers } from "../../../helper/jwtHelpers";
+import jwt from "jsonwebtoken";
 import { prisma } from "../../../shared/prisma";
 import * as bcyrpt from "bcrypt";
+import { jwtHelpers } from "../../../helper/jwtHelpers";
 // import jwt from "jsonwebtoken";
 
 type TloginData = {
@@ -52,11 +52,35 @@ const loginUser = async (data: TloginData) => {
 };
 
 //todo:for creating access token from refresh token
- const refreshToken =(token:string)=>{
-    console.log('refreshToken...',token)
- };
+const refreshToken = async(token: string) => {
+  let decodedToken;
+  try {
+    decodedToken = jwt.verify(token, "secretkey2");
+    console.log(decodedToken);
+  } catch (error) {
+    throw new Error("You are not authorized! login first");
+  }
+
+
+  const userData =await prisma.user.findFirstOrThrow({
+    where:{
+        email:decodedToken?.email 
+    }
+  });
+
+  const accessToken = jwtHelpers.generateToken(
+    { email: userData?.email, role: userData.role },
+    "secretkey",
+    "30m"
+  );
+
+  return {
+    accessToken,
+    needPasswordChange: userData.needPasswordChange,
+  };
+};
 
 export const AuthService = {
   loginUser,
-  refreshToken
+  refreshToken,
 };
