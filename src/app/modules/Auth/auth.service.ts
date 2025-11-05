@@ -1,4 +1,4 @@
-import jwt from "jsonwebtoken";
+import jwt, { JwtPayload } from "jsonwebtoken";
 import { prisma } from "../../../shared/prisma";
 import * as bcyrpt from "bcrypt";
 import { jwtHelpers } from "../../../helper/jwtHelpers";
@@ -55,7 +55,7 @@ const loginUser = async (data: TloginData) => {
 const refreshToken = async(token: string) => {
   let decodedToken;
   try {
-    decodedToken = jwt.verify(token, "secretkey2");
+    decodedToken = jwt.verify(token, "secretkey2") as JwtPayload;
     console.log(decodedToken);
   } catch (error) {
     throw new Error("You are not authorized! login first");
