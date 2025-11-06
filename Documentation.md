@@ -132,3 +132,9 @@ Request-validation, Global try-catch, middleware , login, token work
     
 ####   🍟++++++++++`hs-p4/authentication-middleware-role-based`
 - 01: Add config variable where we need to add
+- 02: Role based access on API
+        - we need to add some checking for public route
+        - which will be in the middle of router and controller
+        - First make one super admin can create another admin. `working on user module`
+        - after create the route with role
+        - we login then the accessToken we get send it to header
