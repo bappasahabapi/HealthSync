@@ -129,3 +129,6 @@ Request-validation, Global try-catch, middleware , login, token work
 - 11: Resolving Type Errors and Adding User Status Filter to Find Active Users
 - 12: configure environment variable
     - install dotenv
+    
+####   🍟++++++++++`hs-p4/authentication-middleware-role-based`
+- 01: Add config variable where we need to add
