@@ -141,3 +141,4 @@ Request-validation, Global try-catch, middleware , login, token work
 - 0003: Creating Reusable Authentication Middleware and Handling API Errors
     - Move the auth middleware to middleware folder 
     - create error folder and handle errors
+- 0004 Implementing Role-Based Access Control on API Routes

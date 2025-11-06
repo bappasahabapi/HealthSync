@@ -5,6 +5,7 @@ import { Request,Response,NextFunction } from "express";
 import ApiError from "../error/ApiError";
 import { StatusCodes } from "http-status-codes";
 
+
 const auth = (...roles: string[]) => {
   return async (req: Request, res: Response, next: NextFunction) => {
     // console.log(roles)
@@ -32,7 +33,7 @@ const auth = (...roles: string[]) => {
 
       next();
     } catch (err) {
-      console.log(err);
+      next(err);
     }
   };
 };
