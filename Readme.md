@@ -12,7 +12,7 @@ TypeScript,NodeJS, Express, Prisma, WEB RTC (via Agora.io), and PostgreSQL
 
 
 ---
-
+🩺 [Postgres Database version](https://github.com/bappasahabapi/HealthSync-postgresql)
 
 
 **Web Application Requirements**
