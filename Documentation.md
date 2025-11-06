@@ -89,52 +89,53 @@ in admin section
 
  fix metadata, response format, http status code, CRUD of admin, global error hadling(next())
 
-- 1: Enhancing Response with **Metadata**
-- 2: Fetching admin data by ID
+- 01: Enhancing Response with **Metadata**
+- 02: Fetching admin data by ID
     -start from service->controller->route
-- 3: Updating admin data in the database by ID
-- 4: Deleting admin data from the database
+- 03: Updating admin data in the database by ID
+- 04: Deleting admin data from the database
     - first delete from admin table using id as pkey
     - then delete from user table using email as fkey
     - Thats why we need transaction as we have dependency
-- 5: Incorporating Soft Delete Functionality
-- 6: Filtering Data Based on Status
-- 7:  Formatting Response Using the sendResponse Function
-- 8: Configuring Routes in a File and Employing HTTP Status Codes
+- 05: Incorporating Soft Delete Functionality
+- 06: Filtering Data Based on Status
+- 07:  Formatting Response Using the sendResponse Function
+- 08: Configuring Routes in a File and Employing HTTP Status Codes
     - http-status-codes added
-- 9: Implementing Global Error Handler using **next function**
-- 10: Managing Not Found Routes
+- 09: Implementing Global Error Handler using **next function**
+- 010: Managing Not Found Routes
 
 
 ####   🍟++++++++++`hs-p3/admin-token`
 
 Request-validation, Global try-catch, middleware , login, token work
 
-- 1: Reduce `Try-Catch Redundancy`
-- 2: Implementing Request Validation Middleware: P-1
-- 3: Implementing Request Validation Middleware: P-2 
+- 001: Reduce `Try-Catch Redundancy`
+- 002: Implementing Request Validation Middleware: P-1
+- 003: Implementing Request Validation Middleware: P-2 
     - `admin.route` working file: update route part
     -Check validation to req.body data: thats why we need zod package [npm i zod]
     - To handle the validation first install zod
     - then make a zod schema
 
-- 5: Creating User Login Functionality
-- 6: Generating Access Tokens for User Login
-- 7: Generating Refresh Tokens and Setting It on Cookie
-- 8: Building jwtHelper for Token Generation
-- 9: Extracting Refresh Token from Cookies for Access Token Generation
+- 005: Creating User Login Functionality
+- 006: Generating Access Tokens for User Login
+- 007: Generating Refresh Tokens and Setting It on Cookie
+- 008: Building jwtHelper for Token Generation
+- 009: Extracting Refresh Token from Cookies for Access Token Generation
     - must set cookie parsar other wise get undefined [npm i cookie-parser]
-- 10: Generating Access Token Using Refresh Token
+- 0010: Generating Access Token Using Refresh Token
     - first check is the token is valid or not
-- 11: Resolving Type Errors and Adding User Status Filter to Find Active Users
-- 12: configure environment variable
+- 0011: Resolving Type Errors and Adding User Status Filter to Find Active Users
+- 0012: configure environment variable
     - install dotenv
     
 ####   🍟++++++++++`hs-p4/authentication-middleware-role-based`
-- 01: Add config variable where we need to add
-- 02: Role based access on API
+- 0001: Add config variable where we need to add
+- 0002: Role based access on API
         - we need to add some checking for public route
         - which will be in the middle of router and controller
         - First make one super admin can create another admin. `working on user module`
         - after create the route with role
         - we login then the accessToken we get send it to header
+- 0003: Creating Reusable Authentication Middleware and Handling API Errors
