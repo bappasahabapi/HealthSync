@@ -139,3 +139,5 @@ Request-validation, Global try-catch, middleware , login, token work
         - after create the route with role
         - we login then the accessToken we get send it to header
 - 0003: Creating Reusable Authentication Middleware and Handling API Errors
+    - Move the auth middleware to middleware folder 
+    - create error folder and handle errors

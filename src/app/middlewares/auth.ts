@@ -2,6 +2,8 @@ import { Secret } from "jsonwebtoken";
 import config from "../../config";
 import { jwtHelpers } from "../../helper/jwtHelpers";
 import { Request,Response,NextFunction } from "express";
+import ApiError from "../error/ApiError";
+import { StatusCodes } from "http-status-codes";
 
 const auth = (...roles: string[]) => {
   return async (req: Request, res: Response, next: NextFunction) => {
@@ -11,9 +13,9 @@ const auth = (...roles: string[]) => {
       const token = req.headers.authorization;
       // console.log(token)
       if (!token) {
-        throw new Error(
-          "You are not authorized.that means no token is present"
-        );
+        // throw new Error( "You are not authorized.that means no token is present");
+        throw new ApiError(StatusCodes.UNAUTHORIZED, "You are not authorized.that means no token is present");
+
       }
 
       //2. varify the token
@@ -25,7 +27,7 @@ const auth = (...roles: string[]) => {
 
       //3. after get varified data and if role is not prsent in data
       if (roles.length && !roles.includes(varifiedUser.role)) {
-        throw new Error("You are not varified user. ");
+        throw new ApiError(StatusCodes.FORBIDDEN,"Forbitten ");
       }
 
       next();
